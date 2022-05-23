@@ -1,11 +1,13 @@
 package com.example.materialdesign1.presentation.switch_theme
 
-import android.os.Build.VERSION_CODES.R
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.materialdesign1.R
+import com.example.materialdesign1.databinding.FragmentSwitchThemeBinding
 import com.example.materialdesign1.domain.model.ThemePreferencesHelper
 
 class SwitchThemeFragment : Fragment() {

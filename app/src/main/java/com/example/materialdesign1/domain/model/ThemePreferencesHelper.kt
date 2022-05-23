@@ -2,7 +2,8 @@ package com.example.materialdesign1.domain.model
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build.VERSION_CODES.R
+import com.example.materialdesign1.R
+
 
 object ThemePreferencesHelper {
     object ThemePreferencesHelper {
