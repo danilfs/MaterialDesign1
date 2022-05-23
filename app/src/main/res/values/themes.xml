@@ -16,12 +16,12 @@
 
     <style name="CaramelTheme" parent="SimpleTheme">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/caramel_primary</item>
-        <item name="colorPrimaryVariant">@color/caramel_primary_variant</item>
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_primary_variant</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/caramel_secondary</item>
-        <item name="colorSecondaryVariant">@color/caramel_secondary_variant</item>
+        <item name="colorSecondary">@color/green_secondary</item>
+        <item name="colorSecondaryVariant">@color/green_secondary_variant</item>
         <!-- Background brand color. -->
-        <item name="android:colorBackground">@color/caramel_background</item>
+        <item name="android:colorBackground">@color/green_background</item>
     </style>
 </resources>
