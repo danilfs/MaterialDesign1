@@ -7,4 +7,6 @@
     <string name="today">Today</string>
     <string name="simple_theme">Simple theme</string>
     <string name="caramel_theme">Caramel theme</string>
+    <string name="switch_theme_menu">Theme</string>
+    <string name="picture_of_the_day_menu">Picture of the day</string>
 </resources>
