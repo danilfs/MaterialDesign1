@@ -5,4 +5,6 @@
     <string name="two_days_ago">Two days ago</string>
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
+    <string name="simple_theme">Simple theme</string>
+    <string name="caramel_theme">Caramel theme</string>
 </resources>
