@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="caramel_primary">#E88846</color>
+    <color name="caramel_primary_variant">#FDCF73</color>
+    <color name="caramel_secondary">#9B878B</color>
+    <color name="caramel_secondary_variant">#6B434C</color>
+    <color name="caramel_background">#DED9D4</color>
 </resources>
