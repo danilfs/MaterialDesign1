@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.example.materialdesign1.R
 import com.example.materialdesign1.databinding.FragmentPictureOfTheDayBinding
+import com.example.materialdesign1.domain.model.PictureOfTheDayPreset
 import com.example.materialdesign1.presentation.ExplanationBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -24,29 +26,30 @@ class PictureOfTheDayFragment : Fragment() {
 
     private val viewModel: PictureOfTheDayViewModel by viewModels()
 
+    private lateinit var preset: PictureOfTheDayPreset
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        parseArgs()
         _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.requestPictureOfTheDay(0)
-        setupDaysAgoChipGroup()
+        viewModel.requestPictureOfTheDay(preset.daysAgo)
         observeUiState()
     }
 
-    private fun setupDaysAgoChipGroup() {
-        binding.daysAgoChipGroup.setOnCheckedChangeListener { _, chipId ->
-            when (chipId) {
-                R.id.two_days_ago_chip -> viewModel.requestPictureOfTheDay(2)
-                R.id.yesterday_chip -> viewModel.requestPictureOfTheDay(1)
-                R.id.today_chip -> viewModel.requestPictureOfTheDay(0)
-            }
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun parseArgs() {
+        preset = requireArguments().getSerializable(KEY_PRESET) as PictureOfTheDayPreset
     }
 
     private fun observeUiState() {
@@ -73,9 +76,13 @@ class PictureOfTheDayFragment : Fragment() {
         ExplanationBottomSheetFragment(header, content).show(parentFragmentManager, header)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    companion object {
+        private const val KEY_PRESET = "preset"
+
+        fun newInstance(preset: PictureOfTheDayPreset) =
+            PictureOfTheDayFragment().apply {
+                arguments = bundleOf(KEY_PRESET to preset)
+            }
     }
 
 }

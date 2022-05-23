@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.materialdesign1.R
 import com.example.materialdesign1.databinding.ActivityMainBinding
 import com.example.materialdesign1.domain.model.ThemePreferencesHelper
-import com.example.materialdesign1.presentation.picture_of_the_day.PictureOfTheDayFragment
+
+import com.example.materialdesign1.presentation.picture_of_the_day_pager.PictureOfTheDayPagerFragment
 import com.example.materialdesign1.presentation.switch_theme.SwitchThemeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,14 +32,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTheme() {
-        val themeId = ThemePreferencesHelper.readTheme(this)
+        val themeId = ThemePreferencesHelper.ThemePreferencesHelper.readTheme(this)
         setTheme(themeId)
     }
 
     private fun setupBottomNav() {
         binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.picture_of_the_day_menu -> PictureOfTheDayFragment()
+                R.id.picture_of_the_day_menu -> PictureOfTheDayPagerFragment()
                 R.id.switch_theme_menu -> SwitchThemeFragment()
                 else -> null
             }?.also { fragment ->
