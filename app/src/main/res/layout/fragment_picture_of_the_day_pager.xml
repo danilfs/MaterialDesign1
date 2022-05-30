@@ -6,18 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".presentation.picture_of_the_day.PictureOfTheDayFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/picture_of_the_day_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/picture_of_the_day_viewpager"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/picture_of_the_day_tab_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/picture_of_the_day_viewpager"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/picture_of_the_day_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/picture_of_the_day_tab_layout" />
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+        android:id="@+id/spring_dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        app:dampingRatio="0.5"
+        app:dotsColor="?attr/colorPrimaryVariant"
+        app:dotsCornerRadius="100dp"
+        app:dotsSize="16dp"
+        app:dotsSpacing="6dp"
+        app:dotsStrokeColor="?attr/colorPrimary"
+        app:dotsStrokeWidth="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:stiffness="300" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

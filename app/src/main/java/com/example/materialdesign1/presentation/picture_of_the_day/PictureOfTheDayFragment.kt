@@ -11,22 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import coil.load
-import com.example.materialdesign1.R
 import com.example.materialdesign1.databinding.FragmentPictureOfTheDayBinding
 import com.example.materialdesign1.domain.model.PictureOfTheDayPreset
-import com.example.materialdesign1.presentation.ExplanationBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class PictureOfTheDayFragment : Fragment() {
+class PictureOfTheDayFragment() : Fragment() {
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding: FragmentPictureOfTheDayBinding get() = _binding!!
 
     private val viewModel: PictureOfTheDayViewModel by viewModels()
 
-    private lateinit var preset: PictureOfTheDayPreset
+    private var preset: PictureOfTheDayPreset = PictureOfTheDayPreset.TODAY
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,22 +56,15 @@ class PictureOfTheDayFragment : Fragment() {
                 binding.pictureLoadingProgressBar.isVisible = uiState.loading
                 binding.pictureOfTheDayImageView.setOnClickListener(null)
                 uiState.pictureOfTheDay?.let { pictureOfTheDay ->
-                    binding.titleTextView.text = pictureOfTheDay.title
+                    binding.toolbar.title = pictureOfTheDay.title
+                    binding.explanationTextView.text = pictureOfTheDay.explanation
                     binding.pictureOfTheDayImageView.load(pictureOfTheDay.url)
-                    binding.pictureOfTheDayImageView.setOnClickListener {
-                        showExplanationBottomSheetFragment(pictureOfTheDay.explanation)
-                    }
                 }
                 uiState.error?.let { error ->
                     Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
-    }
-
-    private fun showExplanationBottomSheetFragment(content: String) {
-        val header = getString(R.string.explanation)
-        ExplanationBottomSheetFragment(header, content).show(parentFragmentManager, header)
     }
 
     companion object {

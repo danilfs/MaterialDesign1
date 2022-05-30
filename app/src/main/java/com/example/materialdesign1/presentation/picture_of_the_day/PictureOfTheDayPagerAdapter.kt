@@ -8,6 +8,8 @@ class PictureOfTheDayPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fra
 
     override fun getItemCount(): Int = PictureOfTheDayPreset.values().size
 
-    override fun createFragment(position: Int): Fragment = PictureOfTheDayFragment
-        .newInstance(PictureOfTheDayPreset.values()[position])
+    override fun createFragment(position: Int): Fragment {
+        val preset = PictureOfTheDayPreset.values()[position]
+        return PictureOfTheDayFragment.newInstance(preset)
+    }
 }
