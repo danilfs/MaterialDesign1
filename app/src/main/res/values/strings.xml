@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">MaterialDesign1</string>
+    <string name="app_name">Material design</string>
+    <string name="picture_of_the_day">Picture of the day</string>
+    <string name="explanation">Explanation</string>
+    <string name="two_days_ago">Two days ago</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="simple_theme">Simple theme</string>
+    <string name="caramel_theme">Green theme</string>
+    <string name="switch_theme_menu">Theme</string>
+    <string name="picture_of_the_day_menu">Picture of the day</string>
 </resources>
