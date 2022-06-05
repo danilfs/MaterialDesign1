@@ -1,5 +1,6 @@
 package com.example.materialdesign1.presentation.picture_of_the_day
 
+import android.content.Context
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -30,6 +31,8 @@ class PictureOfTheDayFragment() : Fragment() {
 
     private var preset: PictureOfTheDayPreset = PictureOfTheDayPreset.TODAY
 
+    private var controller: Controller? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +40,18 @@ class PictureOfTheDayFragment() : Fragment() {
         parseArgs()
         _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is Controller) {
+            controller = context
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        controller = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,6 +78,7 @@ class PictureOfTheDayFragment() : Fragment() {
                     binding.toolbar.title = pictureOfTheDay.title
                     binding.explanationTextView.text = decorateText(pictureOfTheDay.explanation)
                     binding.pictureOfTheDayImageView.load(pictureOfTheDay.url)
+                    controller?.onLoadedPictureOfTheDay()
                 }
                 uiState.error?.let { error ->
                     Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
@@ -70,6 +86,7 @@ class PictureOfTheDayFragment() : Fragment() {
             }
         }
     }
+
     private fun decorateText(text: String): Spanned = SpannableStringBuilder().apply {
         text.split(" ").forEach { word ->
             when (Random.nextInt(6)) {
@@ -92,6 +109,10 @@ class PictureOfTheDayFragment() : Fragment() {
             PictureOfTheDayFragment().apply {
                 arguments = bundleOf(KEY_PRESET to preset)
             }
+    }
+
+    interface Controller {
+        fun onLoadedPictureOfTheDay()
     }
 
 }
