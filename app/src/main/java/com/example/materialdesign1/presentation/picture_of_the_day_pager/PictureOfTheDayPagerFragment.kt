@@ -11,6 +11,7 @@ import com.example.materialdesign1.presentation.picture_of_the_day.PictureOfTheD
 
 class PictureOfTheDayPagerFragment : Fragment() {
 
+
     private var _binding: FragmentPictureOfTheDayPagerBinding? = null
     private val binding: FragmentPictureOfTheDayPagerBinding get() = _binding!!
 
