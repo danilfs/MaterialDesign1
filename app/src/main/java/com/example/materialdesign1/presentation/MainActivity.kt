@@ -8,6 +8,7 @@ import com.example.materialdesign1.domain.model.ThemePreferencesHelper
 
 import com.example.materialdesign1.presentation.picture_of_the_day_pager.PictureOfTheDayPagerFragment
 import com.example.materialdesign1.presentation.switch_theme.SwitchThemeFragment
+import com.example.materialdesign1.presentation.todo_list.TodoListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTheme() {
-        val themeId = ThemePreferencesHelper.ThemePreferencesHelper.readTheme(this)
+        val themeId = ThemePreferencesHelper.readTheme(this)
         setTheme(themeId)
     }
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.picture_of_the_day_menu -> PictureOfTheDayPagerFragment()
                 R.id.switch_theme_menu -> SwitchThemeFragment()
+                R.id.todo_list_menu -> TodoListFragment()
                 else -> null
             }?.also { fragment ->
                 supportFragmentManager.beginTransaction()
