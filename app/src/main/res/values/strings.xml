@@ -9,4 +9,5 @@
     <string name="caramel_theme">Green theme</string>
     <string name="switch_theme_menu">Theme</string>
     <string name="picture_of_the_day_menu">Picture of the day</string>
+    <string name="todo_list_menu">ToDo</string>
 </resources>
