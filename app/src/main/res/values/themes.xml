@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/bradobrei</item>
     </style>
 
     <style name="CaramelTheme" parent="SimpleTheme">
@@ -23,5 +24,7 @@
         <item name="colorSecondaryVariant">@color/green_secondary_variant</item>
         <!-- Background brand color. -->
         <item name="android:colorBackground">@color/green_background</item>
+        <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/cleanvel</item>
     </style>
 </resources>
