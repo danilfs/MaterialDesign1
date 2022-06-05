@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTheme() {
-        val themeId = ThemePreferencesHelper.readTheme(this)
+        val themeId = ThemePreferencesHelper.ThemePreferencesHelper.readTheme(this)
         setTheme(themeId)
     }
 

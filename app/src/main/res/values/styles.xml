@@ -8,4 +8,13 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
 
+    <style name="ToDoCardStyle">
+        <item name="android:layout_marginTop">@dimen/half_default_margin</item>
+        <item name="android:layout_marginBottom">@dimen/half_default_margin</item>
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="cardCornerRadius">@dimen/todo_card_corner_radius</item>
+        <item name="cardElevation">@dimen/todo_card_elevation</item>
+    </style>
+
 </resources>
